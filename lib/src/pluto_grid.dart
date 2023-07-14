@@ -1263,6 +1263,9 @@ class _GridContainer extends StatelessWidget {
     final borderRadius = style.gridBorderRadius.resolve(TextDirection.ltr);
 
     return Focus(
+      onFocusChange: (value) {
+        if (value) FocusManager.instance.primaryFocus?.unfocus();
+      },
       focusNode: stateManager.gridFocusNode,
       child: ScrollConfiguration(
         behavior: PlutoScrollBehavior(
